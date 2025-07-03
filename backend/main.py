@@ -4,6 +4,9 @@ import io
 import statistics
 
 app = FastAPI()
+@app.get("/")
+async def root():
+    return {"message": "Welcome to Sales Anomalies Detector API! Use /upload-csv/ to upload your data."}
 
 @app.post("/upload-csv/")
 async def upload_csv(file: UploadFile, user_email: str = Form(...)):
